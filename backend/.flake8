@@ -1,0 +1,12 @@
+[flake8]
+max-line-length = 120
+extend-ignore =
+    ANN101, ANN201, ANN003,
+    E203, 
+    E501,
+    W503,
+    Q000, Q002 
+exclude =
+    migrations,
+    __pycache__,
+    manage.py

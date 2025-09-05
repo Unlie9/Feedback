@@ -1,19 +1,16 @@
 from django.db import models
-from django.db.models.indexes import Index
 from apps.base.models import BaseModel
 
 
 class Feedback(BaseModel):
 
-  description = models.TextField()
+    description = models.TextField()
 
+    class Meta:
+        verbose_name = 'Feedback'
+        verbose_name_plural = 'Feedbacks'
+        db_table = 'feedback'
+        # indexes = []
 
-  class Meta:
-    verbose_name = 'Feedback'
-    verbose_name_plural = 'Feedbacks'
-    db_table = 'feedback'
-    # indexes = []
-
-  def __str__(self) -> str:
-    return f"Feedback, {self.id}"
-  
+    def __str__(self) -> str:
+        return f"Feedback, {self.id}"
