@@ -10,6 +10,7 @@ dependencies = [
     "django-jazzmin>=3.0.1",
     "djangorestframework>=3.16.1",
     "flake8>=7.3.0",
+    "pre-commit>=4.3.0",
     "requests>=2.32.5",
     "ruff>=0.12.12",
 ]
@@ -19,6 +20,7 @@ line-length = 120
 target-version = ['py312']
 skip-string-normalization = true
 
+
 [tool.ruff]
 line-length = 120
 target-version = "py312"
@@ -27,3 +29,17 @@ exclude = [
     "__pycache__",
     "manage.py",
 ]
+
+
+[tool.ruff.lint]
+select = [
+    "E",  
+    "F",  
+    "W",
+    "I",  
+    "B",  
+    "UP", 
+    "SIM", 
+    "E4"
+]
+ignore = []

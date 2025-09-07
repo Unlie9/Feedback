@@ -9,23 +9,33 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Feedback',
+            name="Feedback",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 (
-                    'is_active',
-                    models.BooleanField(
-                        default=True, help_text='Shows whether the object is still relevant', verbose_name='IsActive'
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
                     ),
                 ),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('description', models.TextField()),
+                (
+                    "is_active",
+                    models.BooleanField(
+                        default=True,
+                        help_text="Shows whether the object is still relevant",
+                        verbose_name="IsActive",
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                ("description", models.TextField()),
             ],
             options={
-                'verbose_name': 'Feedback',
-                'verbose_name_plural': 'Feedbacks',
-                'db_table': 'feedback',
+                "verbose_name": "Feedback",
+                "verbose_name_plural": "Feedbacks",
+                "db_table": "feedback",
             },
         ),
     ]
