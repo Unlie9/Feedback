@@ -6,4 +6,4 @@ class FeedbackListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Feedback
-        fields = ('created_at', 'description')
+        fields = ("created_at", "description")

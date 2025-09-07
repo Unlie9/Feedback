@@ -10,3 +10,12 @@ repos:
         stages: [pre-commit]
         always_run: true
 
+      - id: black
+        name: black
+        entry: black .
+        language: python
+        types: [python]
+        stages: [pre-commit]
+        always_run: true
+
+

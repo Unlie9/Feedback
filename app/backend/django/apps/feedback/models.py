@@ -8,9 +8,9 @@ class Feedback(BaseModel):
     description = models.TextField()
 
     class Meta:
-        verbose_name = 'Feedback'
-        verbose_name_plural = 'Feedbacks'
-        db_table = 'feedback'
+        verbose_name = "Feedback"
+        verbose_name_plural = "Feedbacks"
+        db_table = "feedback"
         # indexes = []
 
     def __str__(self) -> str:
