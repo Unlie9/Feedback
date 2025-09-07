@@ -1,0 +1,48 @@
+name: Tests on pull request
+run-name: Testing code
+
+on: 
+  push:
+    branches: ['main', 'develop']
+  pull_request:
+    branches: ['main', 'develop']
+
+jobs:
+
+  run_django_tests:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python_version: [3.12.3]
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python_version }}
+      
+      - name: Install uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+
+      - name: Debug folder
+        run: ls
+
+      - name: Debug folder 2.0
+        run: |
+          cd app/backend
+          ls
+
+      - name: Install dependencies and run tests
+        run: | 
+          cd app/backend
+          export PATH="$HOME/.local/bin:$PATH"
+          uv sync
+          uv cache prune --ci
+
+          source .venv/bin/activate
+
+          cd django
+          echo "SECRET_KEY = ${DJANGO_SECRET_KEY}"
+          python manage.py test
