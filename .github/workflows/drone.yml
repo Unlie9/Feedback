@@ -12,7 +12,7 @@ jobs:
   run_django_tests:
     runs-on: ubuntu-latest
     env:
-      DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+      DJANGO_SECRET_KEY: ${{ secrets.SECRET_KEY }}
       DJANGO_ALLOWED_HOSTS: ${{ secrets.DJANGO_ALLOWED_HOSTS }}
       TIME_ZONE: ${{ secrets.TIME_ZONE }}
       DEBUG: ${{ secrets.DEBUG }}
