@@ -8,7 +8,7 @@ The **Feedback** project leverages modern tools and technologies to ensure clean
 - **Ruff** – Fast Python linter for catching errors and enforcing code style.   
 - **Black** – Automatic code formatter for consistent style.  
 - **Django Jazzmin** – Customizes the Django admin interface for better usability.
-- **Pre commit config** – Runs `ruff check --fix` on commit and `black .` for formatting.
+- **Pre commit config** – Runs `ruff check --fix` and `black .` for formatting on local commit.
 
 ## 📦 API
 
