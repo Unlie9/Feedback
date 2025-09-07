@@ -34,7 +34,7 @@ jobs:
         run: | 
           cd app/backend
           export PATH="$HOME/.local/bin:$PATH"
-          echo "SECRET_KEY=${{ secrets.SECRET_KEY }}"
+          echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" >> $GITHUB_ENV
           uv sync
           uv cache prune --ci
           source .venv/bin/activate
