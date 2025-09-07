@@ -11,6 +11,11 @@ jobs:
 
   run_django_tests:
     runs-on: ubuntu-latest
+    env:
+      DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+      DJANGO_ALLOWED_HOSTS: ${{ secrets.DJANGO_ALLOWED_HOSTS }}
+      TIME_ZONE: ${{ secrets.TIME_ZONE }}
+      DEBUG: ${{ secrets.DEBUG }}
     strategy:
       max-parallel: 4
       matrix:
@@ -40,9 +45,7 @@ jobs:
           export PATH="$HOME/.local/bin:$PATH"
           uv sync
           uv cache prune --ci
-
           source .venv/bin/activate
 
           cd django
-          echo "SECRET_KEY = ${DJANGO_SECRET_KEY}"
           python manage.py test
