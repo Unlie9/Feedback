@@ -1,6 +1,6 @@
-from django.contrib import admin
-
 from apps.feedback.models import Feedback
+
+from django.contrib import admin
 
 
 @admin.register(Feedback)
