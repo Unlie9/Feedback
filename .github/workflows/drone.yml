@@ -14,7 +14,6 @@ jobs:
     env:
       DJANGO_SECRET_KEY: ${{ secrets.SECRET_KEY }}
       DJANGO_ALLOWED_HOSTS: ${{ secrets.DJANGO_ALLOWED_HOSTS }}
-      TIME_ZONE: ${{ secrets.TIME_ZONE }}
       DEBUG: ${{ secrets.DEBUG }}
     strategy:
       max-parallel: 4
