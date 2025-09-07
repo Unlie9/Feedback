@@ -1,4 +1,3 @@
-import os
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -7,11 +6,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 load_dotenv(dotenv_path=BASE_DIR / ".env", verbose=True)
 
-SECRET_KEY = os.getenv("SECRET_KEY")
+# SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = "ihjbfdsiuhsg$%0u89dfs"
 
-DEBUG = os.getenv("DEBUG")
+# DEBUG = os.getenv("DEBUG")
+DEBUG = True
 
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS").split(",")
+# ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS").split(",")
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0"]
 
 INSTALLED_APPS = [
     "jazzmin",
