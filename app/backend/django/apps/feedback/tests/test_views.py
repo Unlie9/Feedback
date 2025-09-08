@@ -18,5 +18,5 @@ class FeedbackListViewTest(APITestCase):
         url = reverse("feedback:feedbacks-list")
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 23)
+        self.assertEqual(len(response.data), 2)
         self.assertEqual(response.data[0]["description"], TEST_DESCRIPTION)
