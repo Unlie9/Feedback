@@ -10,6 +10,14 @@ The **Feedback** project leverages modern tools and technologies to ensure clean
 - **Django Jazzmin** – Customizes the Django admin interface for better usability.
 - **Pre commit config** – Runs `ruff check --fix` and `black .` for formatting on local commit.
 
+## 🌐 Infrastructure
+
+This section highlights improvements to the project's core systems.
+
+#### ⚙️ CI/CD
+
+- **Continuous Integration** – Configured CI pipelines to automatically run tests and checks on every commit and pull request.
+
 ## 📦 API
 
 - **Versioning** – Added API versioning (`api/v1`) for better scalability and backward compatibility.
