@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # load_dotenv()
 
-SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY = os.environ.get("SECRET_KEY", "ihjbfdsiuhsg$%0u89dfs")
 # SECRET_KEY = "ihjbfdsiuhsg$%0u89dfs"
 
 # DEBUG = os.getenv("DEBUG")
@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "apps.authorization",
     "apps.base",
     "apps.feedback",
 ]
