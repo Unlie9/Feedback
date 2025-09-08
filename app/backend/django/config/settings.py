@@ -1,12 +1,20 @@
+import os
 from pathlib import Path
+
+# from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "django-insecure-ea)%7%_k#d2@n6(w@6))os6rlfe76c*@%*w0$b5qnxetxhdlil"
+# load_dotenv()
 
+SECRET_KEY = os.environ["SECRET_KEY"]
+# SECRET_KEY = "ihjbfdsiuhsg$%0u89dfs"
+
+# DEBUG = os.getenv("DEBUG")
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS").split(",")
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0"]
 
 INSTALLED_APPS = [
     "jazzmin",
@@ -75,7 +83,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Kiev"
 
 USE_I18N = True
 
