@@ -12,7 +12,7 @@ jobs:
   run_django_tests:
     runs-on: ubuntu-latest
     env:
-      DJANGO_SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
       DJANGO_ALLOWED_HOSTS: ${{ secrets.DJANGO_ALLOWED_HOSTS }}
       DEBUG: ${{ secrets.DEBUG }}
     strategy:
@@ -40,10 +40,15 @@ jobs:
         run: | 
           cd app/backend
           export PATH="$HOME/.local/bin:$PATH"
-          echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" >> $GITHUB_ENV
           uv sync
           uv cache prune --ci
+        
+      - name: Run Django tests
+        run: |
+          cd app/backend
           source .venv/bin/activate
 
           cd django
           python manage.py test
+
+
