@@ -36,7 +36,7 @@ jobs:
       - name: Install uv
         run: curl -LsSf https://astral.sh/uv/install.sh | sh
 
-      - name: Install dependencies and run tests
+      - name: Install dependencies
         run: | 
           cd app/backend
           export PATH="$HOME/.local/bin:$PATH"
