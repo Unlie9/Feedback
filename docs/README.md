@@ -16,7 +16,7 @@ This section highlights improvements to the project's core systems.
 
 #### ⚙️ CI/CD
 
-- **Continuous Integration** – Configured CI pipelines to automatically run tests and checks on every commit and pull request.
+- **Continuous Integration** – Configured CI pipelines to automatically run checks on every commit and tests on pull request to develop and main branches.
 
 ## 📦 API
 
