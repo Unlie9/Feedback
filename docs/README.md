@@ -20,6 +20,8 @@ This section highlights improvements to the project's core systems.
 
 ## 📦 API
 
-- **Versioning** – Added API versioning (`api/v1`) for better scalability and backward compatibility.
+- **Versioning** – (`api/v1`) for better scalability and backward compatibility.
+
+- **Logging** – to improve scalability and maintain backward compatibility.
 
 
