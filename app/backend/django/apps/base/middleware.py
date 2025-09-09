@@ -16,7 +16,7 @@ class LoggingMiddleware:
             response = self._get_response(request)
         except Exception as error:
             error_logger.error(
-                f"Error in get response: ({error})", extra={"request": request.path}
+                msg=f"Response: ({error})", extra={"request": request.path}
             )
         else:
             info_logger.info("Response", extra={"request": response.status_code})
