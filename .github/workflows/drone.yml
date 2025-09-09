@@ -36,12 +36,12 @@ jobs:
           export PATH="$HOME/.local/bin:$PATH"
           uv sync
           uv cache prune --ci
+          
         
       - name: Run Django tests
         run: |
           cd app/backend
           source .venv/bin/activate
-
           cd django
           python manage.py test
 
