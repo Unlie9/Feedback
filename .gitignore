@@ -266,7 +266,8 @@ pyrightconfig.json
 
 ### react ###
 .DS_*
-logs
+.log
+
 **/*.backup.*
 **/*.back.*
 

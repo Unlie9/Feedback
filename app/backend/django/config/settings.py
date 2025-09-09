@@ -38,6 +38,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "apps.base.middleware.LoggingMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -94,6 +95,61 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+
+"""LOGGING SETTINGS"""
+
+INFO_LOG_DIR = os.path.join(BASE_DIR, "logs", "info.log")
+ERROR_LOG_DIR = os.path.join(BASE_DIR, "logs", "error.log")
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "info_formatter": {
+            "format": "{levelname} {asctime} {process:d} {thread:d} {message} {request}",
+            "style": "{",
+        },
+        "error_formatter": {
+            "format": "{levelname} {asctime} {process:d} {thread:d} {request} {message}",
+            "style": "{",
+        },
+    },
+    "filters": {
+        "info_log_filter": {"()": "logs.filters.InfoLogFilter"},
+        "error_log_filter": {"()": "logs.filters.ErrorLogFilter"},
+    },
+    "handlers": {
+        "info_handler": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filters": ["info_log_filter"],
+            "formatter": "info_formatter",
+            "filename": INFO_LOG_DIR,
+        },
+        "error_handler": {
+            "level": "WARNING",
+            "class": "logging.FileHandler",
+            "filters": ["error_log_filter"],
+            "formatter": "error_formatter",
+            "filename": ERROR_LOG_DIR,
+        },
+    },
+    "loggers": {
+        "info": {
+            "handlers": ["info_handler"],
+            "level": "DEBUG",
+            "propagate": True,
+        },
+        "error": {
+            "handlers": ["error_handler"],
+            "level": "WARNING",
+            "propagate": True,
+        },
+    },
+}
+
+
+"""ADMIN JAZZMIN SETTINGS"""
 
 JAZZMIN_UI_TWEAKS = {
     "theme": "pulse",
